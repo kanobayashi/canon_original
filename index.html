@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"  content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="/js/main.js"></script>
+    <title>Adobe Pr 使えるeffectまとめ</title>
+    <meta property="og:title" content="使えるeffectまとめ" />
+    <meta property="og:image" content="https://.netlify.com/images/ogp.png" />
+</head>
+<body>
+    <div id="stkr"></div>
+    <!-- JavaScript -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // マウスストーカー関連の要素（任意で変更してください）
+    const mouseStalker = "#stkr";           // マウスストーカーになる要素を指定
+    const mouseTarget = ".stkr-target";     // リンクなどアクションを付けたい要素を指定
+    const mouseStalkerArea = window;        // マウスストーカーが機能する要素を指定
+
+    // 処理で使う変数たち
+    const stkrSize = parseInt($(mouseStalker).css("width").replace(/px/, ""));
+    const stkrPosX = parseInt($(mouseStalker).css("left").replace(/px/, ""));
+    const stkrPosY = parseInt($(mouseStalker).css("top").replace(/px/, ""));
+    const cssPosAjust = stkrPosX + (stkrSize / 2);
+    let scale = 1;
+
+    // 追従用の処理
+    $(mouseStalkerArea).hover(function(){
+      $(mouseStalkerArea).mousemove(function(e){
+        let x = e.clientX - cssPosAjust;
+        let y = e.clientY - cssPosAjust;
+        $(mouseStalker).css({
+          "transform": "translate(" + x + "px," + y + "px) scale(" + scale + ")",
+        });
+      });
+    });
+
+    // リンクホバーの処理
+    $(mouseTarget).hover(function(e){
+      scale = 2;
+      let x = e.clientX - cssPosAjust;
+      let y = e.clientY - cssPosAjust;
+      $(mouseStalker).css({
+        "transform": "translate(" + x + "px," + y + "px) scale(" + scale + ")",
+      });
+    }, function(){
+      scale = 1;
+    });
+  </script>
+    <main>
+    <header>
+        <div class="title" >
+        <h1 id="top">
+            使えるeffectまとめ
+        </h1>
+        <div class="nav">
+            <ul>
+                <li><a href="#basic" class="stkr-target">基礎編</a></li>
+                <li><a href="#advanced" class="stkr-target">応用編</a></li>
+            </ul>
+
+        </nav>
+        </div>
+        </div>
+        <div class="firstview">
+            <p>オリジナル。<br>何をしたらいいのかわからない、という、<br>そう、<br>そこのあなたに向けたサイトです。</p>
+            
+            <div id="video_area">
+                <video id="video" poster="images/lumetri.png" webkit-playsinline playsinline muted autoplay loop>
+            <source src="videos/all.mp4" type="video/mp4">
+                </video>
+                </div>
+        </div>
+    </header>
+    
+    
+    <section id="basic">
+        <h2>基礎編</h2>
+        <div class="container">
+            <div class="contents" id="lumetri">
+                <div class="txt_img">
+                <div class="image" id="img_right">
+                    <video src="videos/lumetri.mp4" width="450"　webkit-playsinline playsinline muted autoplay loop></video>
+                </div>
+                <div class="text" id="txt_left">
+                    <h3>lumetriカラー</h3>
+                    <p>素材の色を調整するツール。<br><br>
+
+                        基本補正、クリエイティブ、カーブ、カラーホイールとカラーマッチ、HSLセカンダリ、ビネットなど細かく調整できる！
+                        困ったら、<span>基本補正→自動</span>で任せちゃえばOK！</p>
+                </div>
+                </div>
+                <div class="step">
+                    <img src="images/step2.png" alt="" height="50" id="step">
+                    <p>ウィンドウ</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>lumetriカラー</p>
+                </div>
+            </div>
+
+            <div class="contents" id="blur">
+                <div class="txt_img">
+                <div class="image" id="img_left">
+                    <video src="videos/ブラー.mp4" width="450"　webkit-playsinline playsinline muted autoplay loop></video>
+                </div>
+                <div class="text" id="txt_right">
+                    <h3>ブラー(ガウス)</h3>
+                    <p>ぼかしをかけることができる︎。<br><br>
+
+                        キーフレームを利用すると、だんだんぼやけたり、だんだんピントがあっていくような編集ができるよ！</p>
+                </div>
+                </div>
+                <div class="step">
+                    <img src="images/step2.png" alt="" height="50" id="step">
+                    <p>エフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ビデオエフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ブラー＆シャープ</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ブラー(ガウス)</p>
+                </div>
+            </div>
+
+            <div class="contents" id="noise">
+                <div class="txt_img">
+                <div class="image" id="img_right">
+                    <video src="videos/ノイズ.mp4" width="450"　webkit-playsinline playsinline muted autoplay loop></video>
+                </div>
+                <div class="text" id="txt_left">
+                    <h3>ノイズ</h3>
+                    <p>ザラザラした印象を与える。<br><br>
+
+                        ノイズ量を調整することで、映像のざらつき具合が変わるよ！</p>
+                </div>
+                </div>
+                <div class="step">
+                    <img src="images/step2.png" alt="" height="50" id="step">
+                    <p>エフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ビデオエフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ノイズ＆グレイン</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ノイズ</p>
+                    
+                </div>
+            </div>
+
+            <div class="contents" id="lens">
+                <div class="txt_img">
+                <div class="image" id="img_left">
+                    <video src="videos/レンズフレア.mp4" width="450"　webkit-playsinline playsinline muted autoplay loop></video>
+                </div>
+                <div class="text" id="txt_right">
+                    <h3>レンズフレア</h3>
+                    <p>太陽光のようなエフェクト。<br><br>
+
+                        晴れの日、外で撮った映像にかけるのがおすすめ！</p>
+                </div>
+                </div>
+                <div class="step">
+                    <img src="images/step2.png" alt="" height="50" id="step">
+                    <p>エフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ビデオエフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>描画</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>レンズフレア</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="advanced">
+        <h2>応用編</h2>
+        <div class="container">
+
+        <div class="contents" id="mozaiku">
+            <div class="txt_img">
+            <div class="image" id="img_right">
+                <video src="videos/モザイク.mp4" width="450"　webkit-playsinline playsinline muted autoplay loop></video>
+            </div>
+            <div class="text" id="txt_left">
+                <h3>モザイク</h3>
+                <p>解像度を下げることができる。<br><br>
+
+                    水平方向と垂直方向でモザイクの細かさを変えられるよ！</p>
+            </div>
+            </div>
+            <div class="step">
+                <img src="images/step2.png" alt="" height="50" id="step">
+                <p>エフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ビデオエフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>スタイライズ</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>モザイク</p>
+            </div>
+        </div>
+
+        <div class="contents" id="drop">
+            <div class="txt_img">
+            <div class="image" id="img_left">
+                <video src="videos/ドロップシャドウ.mp4" width="450"　webkit-playsinline playsinline muted autoplay loop></video>
+            </div>
+            <div class="text" id="txt_right">
+                <h3>ドロップシャドウ</h3>
+                <p>影をつけることができる。<br><br>
+
+                    画像とか文字につけるよ！
+                    シャドウの色を工夫してみるとおしゃれに見えるよ</p>
+            </div>
+            </div>
+            <div class="step">
+                <img src="images/step2.png" alt="" height="50" id="step">
+                <p>エフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ビデオエフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>遠近</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ドロップシャドウ</p>
+            </div>
+        </div>
+
+        <div class="contents" id="wa-pu">
+            <div class="txt_img">
+            <div class="image" id="img_right">
+                <video src="videos/ワープ.mp4" width="450"　webkit-playsinline playsinline muted autoplay loop></video>
+            </div>
+            <div class="text" id="txt_left">
+                <h3>ワープスタビライザー</h3>
+                <p>撮影した動画の手ぶれを軽減させてくれる。<br><br>
+
+                    エフェクトかけるだけで勝手に分析して補正してくれる。<br>神。</p>
+            </div>
+            </div>
+            <div class="step">
+                <img src="images/step2.png" alt="" height="50" id="step">
+                <p>エフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ビデオエフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ディストーション</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ワープスタビライザー</p>
+            </div>
+        </div>
+
+        <div class="contents" id="track">
+            <div class="txt_img">
+            <div class="image" id="img_left">
+                <video src="videos/トラックマット.mp4" width="450"　webkit-playsinline playsinline muted autoplay loop></video>
+            </div>
+            <div class="text" id="txt_right">
+                <h3>トラックマット</h3>
+                <p>くりぬける。<br><br>
+
+                    下の動画にかける。
+                    上の文字に繰り抜かれるよ！</p>
+            </div>
+            </div>
+            <div class="step">
+                <img src="images/step2.png" alt="" height="50" id="step">
+                <p>エフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>ビデオエフェクト</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>キーイング</p>
+                    <img src="images/arrow4.png" height="50" id="arrow">
+                    <p>トラックマットキー</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <div class="backtotop">
+        <img src="images/btt1.png" alt="" height="70" width="20">
+        <a href="#top" id="bttbtn">Back to Top</a>
+    </div>
+    </main>
+    <footer>©︎2023 canobayashi All Rights Reserved</footer>
+    <p></p>
+</body>
+</html>
